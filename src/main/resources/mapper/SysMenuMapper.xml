@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.devinlee.mybatisgeneratordemo.mapper.SysMenuMapper">
+  <resultMap id="BaseResultMap" type="com.devinlee.mybatisgeneratordemo.entity.SysMenu">
+    <result column="SM_ID" jdbcType="VARCHAR" property="SM_ID" />
+    <result column="SAP_ID" jdbcType="VARCHAR" property="SAP_ID" />
+    <result column="SM_NAME" jdbcType="VARCHAR" property="SM_NAME" />
+    <result column="SM_PARENTID" jdbcType="VARCHAR" property="SM_PARENTID" />
+    <result column="SM_ICON" jdbcType="VARCHAR" property="SM_ICON" />
+    <result column="SM_TYPE" jdbcType="VARCHAR" property="SM_TYPE" />
+    <result column="SM_ACTION" jdbcType="VARCHAR" property="SM_ACTION" />
+    <result column="SM_ORDER" jdbcType="DECIMAL" property="SM_ORDER" />
+    <result column="SM_CONTENT" jdbcType="VARCHAR" property="SM_CONTENT" />
+    <result column="SM_ADMIN" jdbcType="VARCHAR" property="SM_ADMIN" />
+  </resultMap>
+  <sql id="ByMap_Where_Clause">
+    <where>
+      <if test="eqSM_ID != null">
+        AND SM_ID = #{eqSM_ID,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSAP_ID != null">
+        AND SAP_ID = #{eqSAP_ID,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_NAME != null">
+        AND SM_NAME = #{eqSM_NAME,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_PARENTID != null">
+        AND SM_PARENTID = #{eqSM_PARENTID,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_ICON != null">
+        AND SM_ICON = #{eqSM_ICON,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_TYPE != null">
+        AND SM_TYPE = #{eqSM_TYPE,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_ACTION != null">
+        AND SM_ACTION = #{eqSM_ACTION,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_ORDER != null">
+        AND SM_ORDER = #{eqSM_ORDER,jdbcType=DECIMAL}
+      </if>
+      <if test="eqSM_CONTENT != null">
+        AND SM_CONTENT = #{eqSM_CONTENT,jdbcType=VARCHAR}
+      </if>
+      <if test="eqSM_ADMIN != null">
+        AND SM_ADMIN = #{eqSM_ADMIN,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </sql>
+  <sql id="ByMap_Set_Clause">
+    <set>
+      <if test="SM_ID != null">
+        SM_ID = #{SM_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="SAP_ID != null">
+        SAP_ID = #{SAP_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_NAME != null">
+        SM_NAME = #{SM_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_PARENTID != null">
+        SM_PARENTID = #{SM_PARENTID,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ICON != null">
+        SM_ICON = #{SM_ICON,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_TYPE != null">
+        SM_TYPE = #{SM_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ACTION != null">
+        SM_ACTION = #{SM_ACTION,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ORDER != null">
+        SM_ORDER = #{SM_ORDER,jdbcType=DECIMAL},
+      </if>
+      <if test="SM_CONTENT != null">
+        SM_CONTENT = #{SM_CONTENT,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ADMIN != null">
+        SM_ADMIN = #{SM_ADMIN,jdbcType=VARCHAR},
+      </if>
+    </set>
+  </sql>
+  <select id="selectByMap" parameterType="java.util.Map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_menu
+    <if test="_parameter != null">
+      <include refid="ByMap_Where_Clause" />
+      <if test="orderByClause != null">
+        order by ${orderByClause}
+      </if>
+    </if>
+  </select>
+  <insert id="insert" parameterType="com.devinlee.mybatisgeneratordemo.entity.SysMenu">
+    insert into sys_menu (SM_ID, SAP_ID, SM_NAME, 
+      SM_PARENTID, SM_ICON, SM_TYPE, 
+      SM_ACTION, SM_ORDER, SM_CONTENT, 
+      SM_ADMIN)
+    values (#{SM_ID,jdbcType=VARCHAR}, #{SAP_ID,jdbcType=VARCHAR}, #{SM_NAME,jdbcType=VARCHAR}, 
+      #{SM_PARENTID,jdbcType=VARCHAR}, #{SM_ICON,jdbcType=VARCHAR}, #{SM_TYPE,jdbcType=VARCHAR}, 
+      #{SM_ACTION,jdbcType=VARCHAR}, #{SM_ORDER,jdbcType=DECIMAL}, #{SM_CONTENT,jdbcType=VARCHAR}, 
+      #{SM_ADMIN,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.devinlee.mybatisgeneratordemo.entity.SysMenu">
+    insert into sys_menu
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="SM_ID != null">
+        SM_ID,
+      </if>
+      <if test="SAP_ID != null">
+        SAP_ID,
+      </if>
+      <if test="SM_NAME != null">
+        SM_NAME,
+      </if>
+      <if test="SM_PARENTID != null">
+        SM_PARENTID,
+      </if>
+      <if test="SM_ICON != null">
+        SM_ICON,
+      </if>
+      <if test="SM_TYPE != null">
+        SM_TYPE,
+      </if>
+      <if test="SM_ACTION != null">
+        SM_ACTION,
+      </if>
+      <if test="SM_ORDER != null">
+        SM_ORDER,
+      </if>
+      <if test="SM_CONTENT != null">
+        SM_CONTENT,
+      </if>
+      <if test="SM_ADMIN != null">
+        SM_ADMIN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="SM_ID != null">
+        #{SM_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="SAP_ID != null">
+        #{SAP_ID,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_NAME != null">
+        #{SM_NAME,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_PARENTID != null">
+        #{SM_PARENTID,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ICON != null">
+        #{SM_ICON,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_TYPE != null">
+        #{SM_TYPE,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ACTION != null">
+        #{SM_ACTION,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ORDER != null">
+        #{SM_ORDER,jdbcType=DECIMAL},
+      </if>
+      <if test="SM_CONTENT != null">
+        #{SM_CONTENT,jdbcType=VARCHAR},
+      </if>
+      <if test="SM_ADMIN != null">
+        #{SM_ADMIN,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByMap" parameterType="java.util.Map">
+    update sys_menu
+    <if test="_parameter != null">
+      <include refid="ByMap_Set_Clause" />
+      <include refid="ByMap_Where_Clause" />
+    </if>
+  </update>
+</mapper>
